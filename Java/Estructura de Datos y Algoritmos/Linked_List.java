@@ -142,3 +142,5 @@ public class Linked_List
         System.out.println(aux_list);
     }
 }
+
+// x
