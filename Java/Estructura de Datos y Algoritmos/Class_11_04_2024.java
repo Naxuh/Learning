@@ -9,7 +9,7 @@ public class Class_11_04_2024
 {
     public static void main(String[] args)
     {
-        Input scanner = new Input(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         // int num = scanner.nextInt();
         // System.out.println(binario(num));

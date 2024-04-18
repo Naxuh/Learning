@@ -103,7 +103,7 @@ public class Linked_List
         System.out.println(list.contains(3));  // Imprime: true
     }
 
-    public static void linked_list(String[] args)
+    public static void linked_list()
     {
         LinkedList<Integer> list = new LinkedList<>();
     
@@ -129,5 +129,16 @@ public class Linked_List
         System.out.println(list.size());  // Imprime: 3
 
         list.clear();  // Elimina todos los elementos de la lista
+    }
+
+    public static void invertir_linked_list(LinkedList<Integer> list)
+    {
+        LinkedList<Integer> aux_list = new LinkedList<>();
+        for (int i = list.size() - 1; i >= 0; i--)
+        {
+            aux_list.add(list.get(i));
+        }
+        
+        System.out.println(aux_list);
     }
 }

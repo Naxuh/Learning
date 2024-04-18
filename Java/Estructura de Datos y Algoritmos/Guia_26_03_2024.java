@@ -80,8 +80,6 @@ public class Guia_26_03_2024
 
         scanner.close();
     }
-
-    public static 
 }
 
 /*
