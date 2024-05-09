@@ -25,12 +25,15 @@ b. Diseñe el método invertir de forma recursiva.
 
 public class Guia_E1_04_16_2024
 {
-    class LinkedList {
-        class Node {
+    class LinkedList
+    {
+        class Node
+        {
             int value;
             Node next;
     
-            Node(int value) {
+            Node(int value)
+            {
                 this.value = value;
             }
         }

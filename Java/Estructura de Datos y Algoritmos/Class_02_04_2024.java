@@ -4,7 +4,8 @@ import java.util.LinkedList;
 
 public class Class_02_04_2024
 {
-    public static void main(String [] args) {
+    public static void main(String [] args)
+    {
         Stack<Integer> stack = new Stack<Integer>(); // Create a stack
 
         // Add elements to the stack
@@ -47,5 +48,34 @@ public class Class_02_04_2024
 
         // Imprimir la cola después de quitar un elemento
         System.out.println("Cola después de quitar un elemento: " + queue);
+
+        // Crear una linked list
+        LinkedList<Integer> linked_list = new LinkedList<>();
+
+        // Agregar elementos a la linked list
+        linked_list.add(1);
+        linked_list.add(2);
+        linked_list.add(3);
+
+        // Imprimir la linked list
+        System.out.println("Linked list: " + linked_list);
+
+        // Quitar un elemento de la linked list
+        linked_list.remove(1);
+        System.out.println("Linked list después de quitar un elemento: " + linked_list);
+
+        // Verificar si la linked list contiene un elemento
+        boolean contains_element = linked_list.contains(2);
+        System.out.println("La linked list contiene el elemento 2: " + contains_element);
+
+        // Obtener el tamaño de la linked list
+        int size_linked_list = linked_list.size();
+        System.out.println("Tamaño de la linked list: " + size_linked_list);
+
+        // Obtener el elemento en una posición específica
+        int element_at_index = linked_list.get(0);
+
+        // Reemplazar un elemento en una posición específica
+        linked_list.set(0, 4);
     }
 }

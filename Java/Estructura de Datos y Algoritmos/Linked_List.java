@@ -1,9 +1,6 @@
-import java.util.*;
-
 public class Linked_List
 {
     private Node head;
-
     private static class Node
     {
         private int value;
@@ -15,18 +12,10 @@ public class Linked_List
         }
     }
 
-    // Agrega un elemento al principio de la lista
-    public void add_first(int value)
-    {
-        Node new_node = new Node(value);
-        new_node.next = head;
-        head = new_node;
-    }
-
     // Agrega un elemento al final de la lista
     public void add_last(int value)
     {
-        Node new_node = new Node(value);
+        var new_node = new Node(value);
 
         if (head == null)
         {
@@ -40,6 +29,14 @@ public class Linked_List
             }
             current.next = new_node;
         }
+    }
+
+    // Agrega un elemento al principio de la lista
+    public void add_first(int value)
+    {
+        Node new_node = new Node(value);
+        new_node.next = head;
+        head = new_node;
     }
 
     // Elimina el primer elemento con el valor dado
@@ -80,67 +77,23 @@ public class Linked_List
     }
 
     // Muestra la lista
-    public void print_list()
+    public void print()
     {
         Node current = head;
         while (current != null)
         {
-            System.out.print(current.value + " ");
+            System.out.println(current.value + " ");
             current = current.next;
         }
-        System.out.println();
     }
 
     public static void main(String[] args)
     {
-        Linked_List list = new Linked_List();
-        list.add_first(1);
-        list.add_first(2);
-        list.add_last(3);
-        list.print_list();  // Imprime: 2 1 3
-        list.remove(1);
-        list.print_list();  // Imprime: 2 3
-        System.out.println(list.contains(3));  // Imprime: true
-    }
-
-    public static void linked_list()
-    {
-        LinkedList<Integer> list = new LinkedList<>();
-    
-        // Agrega elementos al principio de la lista
-        list.addFirst(1);
-        list.addFirst(2);
-    
-        // Agrega elementos al final de la lista
-        list.addLast(3);
-        list.addLast(4);
-    
-        // Imprime la lista
-        System.out.println(list);  // Imprime: [2, 1, 3, 4]
-    
-        // Elimina el primer elemento con el valor dado
-        list.removeFirstOccurrence(1);
-        System.out.println(list);  // Imprime: [2, 3, 4]
-    
-        // Verifica si un elemento está en la lista
-        System.out.println(list.contains(3));  // Imprime: true
-    
-        // Obtiene el tamaño de la lista
-        System.out.println(list.size());  // Imprime: 3
-
-        list.clear();  // Elimina todos los elementos de la lista
-    }
-
-    public static void invertir_linked_list(LinkedList<Integer> list)
-    {
-        LinkedList<Integer> aux_list = new LinkedList<>();
-        for (int i = list.size() - 1; i >= 0; i--)
-        {
-            aux_list.add(list.get(i));
-        }
-        
-        System.out.println(aux_list);
+        var linked_list = new Linked_List();
+        linked_list.add_last(1);
+        linked_list.add_last(2);
+        linked_list.add_last(3);
+        linked_list.print();
     }
 }
 
-// x

@@ -4,19 +4,6 @@ public class Class_09_04_2024
 {
     public static void main(String[] args)
     {
-        System.out.println(factorial(3));
-        System.out.println(fibonacci(3));
-        int[] array = {1, 2, 3, 4, 5};
-        array = invertir_array(array);
-        for (int i = 0; i < array.length; i++)
-        {
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
-        int[] sec_array = {7, 8, 9, 10, 11};
-        inverse(sec_array, 0);
-        System.out.println();
-        hanoi(3, 'A', 'C', 'B');
     }
     public static int factorial(int n) // O(n)
     {

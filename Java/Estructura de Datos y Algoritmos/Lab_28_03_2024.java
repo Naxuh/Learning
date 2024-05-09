@@ -1,6 +1,6 @@
 /*
-Ejercicio: Mezclar dos arrays ordenados
-En base a un input de dos arrays ordenados, mezclarlos en uno solo manteniendo el orden y calcular su Big-O
+Ejercicio: Mezclar dos arrays y ordenarlos
+En base a un input de dos arrays, mezclarlos en uno solo y ordenarlos, luego calcular su Big-O
 Input: n y m (tamaños de los arrays)
 Las siguientes 2 líneas entran los n números del array uno y m números del array 2
 Ejemplo: n = 3 , m = 4, array 1 = {-3, 1, 4}, array 2 = {-2, 0, 3, 8}
@@ -14,7 +14,7 @@ public class Lab_28_03_2024
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Length of n y m: ");
+        System.out.print("Length of n and m: ");
 
         int n = scanner.nextInt();
         int m = scanner.nextInt();
@@ -66,7 +66,7 @@ public class Lab_28_03_2024
 
         for (int i = 0; i < mixed_array.length; i++)
         {
-            System.out.print(mixed_array[i] + " ");
+            System.out.println(mixed_array[i] + " ");
         }
     }
 }

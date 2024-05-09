@@ -25,24 +25,25 @@ public class Control_04_17_2024
 {
     public static void main(String[] args)
     {
-        System.out.println(isValid("{()[]}"));
+        System.out.println(is_valid("{()[]}"));
     
     }
 
 
-    public static boolean isValid(String s)
+    public static boolean is_valid(String s)
     {
         Stack<Character> stack = new Stack<Character>();
-        for (char c : s.toCharArray())
+        for (int i = 0; i < s.length(); i++)
         {
+            char c = s.charAt(i);
             if (c == '(')
-                stack.push(')');
+            stack.push(')');
             else if (c == '{')
-                stack.push('}');
+            stack.push('}');
             else if (c == '[')
-                stack.push(']');
+            stack.push(']');
             else if (stack.isEmpty() || stack.pop() != c)
-                return false;
+            return false;
         }
         return stack.isEmpty();
     }

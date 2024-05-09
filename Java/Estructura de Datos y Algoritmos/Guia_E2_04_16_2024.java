@@ -21,19 +21,15 @@ public class Guia_E2_04_16_2024
     public static void main(String[] args)
     {
         int[] array = {1, 2, 3, 6, 7};
-        // print_array(invert_array_using_stack(array));
-        // print_array(invert_array_iteratively(array));
         print_array(invert_array_recursively(array, new int[array.length], 0));
     }
 
     public static void print_array(int[] array)
     {
-        for (int i : array)
+        for (int i = 0; i < array.length; i++)
         {
-            System.out.print(i + " ");
+            System.out.println(array[i]);
         }
-
-        System.out.println();
     }
 
     public static int[] invert_array_using_stack(int[] array)
