@@ -1,7 +1,5 @@
 /*
-Missing Number:
-
-You are given all numbers between 1,2,..., n except one. Your task is to find the missing number.
+Missing Number: You are given all numbers between 1,2,..., n except one. Your task is to find the missing number.
 
 Input
 
@@ -24,7 +22,7 @@ Output:
 
 import java.util.Scanner;
 
-public class Class_12_03_2024
+public class Class_03_12_2024
 {
     public static void main(String[] args)
     {

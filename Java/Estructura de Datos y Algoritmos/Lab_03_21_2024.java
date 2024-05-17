@@ -12,7 +12,7 @@ Recordar: 11 >= 0 y 10 >= K
 
 import java.util.Scanner;
 
-public class Lab_21_03_2024
+public class Lab_03_21_2024
 {
     public static void main(String[] args)
     {

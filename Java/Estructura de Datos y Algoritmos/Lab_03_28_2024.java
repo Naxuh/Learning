@@ -9,7 +9,7 @@ Output: {-3, -2, 0, 1, 3, 4, 8}
 
 import java.util.Scanner;
 
-public class Lab_28_03_2024
+public class Lab_03_28_2024
 {
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);

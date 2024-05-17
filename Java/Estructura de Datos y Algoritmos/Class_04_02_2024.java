@@ -2,7 +2,7 @@ import java.util.Stack;
 import java.util.Queue;
 import java.util.LinkedList;
 
-public class Class_02_04_2024
+public class Class_04_02_2024
 {
     public static void main(String [] args)
     {

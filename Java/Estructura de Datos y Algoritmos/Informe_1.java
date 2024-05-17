@@ -1,5 +1,5 @@
 /*
-Ejercicio de desarrollo
+Ejercicio de desarrollo (03/27/2024)
 Diseña una solución algorítmica para el siguiente problema y analiza el tiempo de ejecución utilizando notación O(n).
 
 1.1 Pares entre 2 filas
@@ -21,7 +21,7 @@ Restricciones:
 
 import java.util.Scanner;
 
-public class Informe_27_03_2024
+public class Informe_1
 {
     public static void main(String[] args)
     {

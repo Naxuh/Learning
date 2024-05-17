@@ -29,7 +29,7 @@ Output:
 
 import java.util.Scanner;
 
-public class Class_20_03_2024
+public class Class_03_20_2024
 {
     public static void main(String[] args)
     {
