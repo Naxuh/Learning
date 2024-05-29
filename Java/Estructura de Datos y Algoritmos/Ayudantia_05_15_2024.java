@@ -8,7 +8,7 @@
     Y tener como target el nro. 27 para una busqueda binaria
 */
 
-public class Class_05_15_2024
+public class Ayudantia_05_15_2024
 {
     public static void main(String[] args)
     {

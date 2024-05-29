@@ -9,12 +9,12 @@ public class Class_04_16_2024
     public static void main(String[] args)
     { 
         int[] array = {4, 3, 2, 10, 12, 1, 5, 6};
-        selectionSort(array);
-        insertionSort(array);
-        printArray(array);
+        // selection_sort(array);
+        // insertion_sort(array);
+        print(array);
     }
 
-    public static void selectionSort(int arr[]) {
+    public static void selection_sort(int arr[]) {
         int n = arr.length;
     
         for (int i = 0; i < n - 1; i++)
@@ -30,7 +30,7 @@ public class Class_04_16_2024
         }
     }
 
-    public static void insertionSort(int arr[])
+    public static void insertion_sort(int arr[])
     {
         for (int i = 1; i < arr.length; ++i)
         {
@@ -47,13 +47,12 @@ public class Class_04_16_2024
     }
 
 
-    public static void printArray(int arr[])
+    public static void print(int arr[])
     {
         int n = arr.length;
         for (int i = 0; i < n; ++i)
         {
-            System.out.print(arr[i] + " ");
+            System.out.println(arr[i]);
         }
-        System.out.println();
     }
 }

@@ -61,7 +61,7 @@ Output:
 
 import java.util.Scanner;
 
-public class Guia_03_26_2024
+public class Guia_1
 {
     public static void main(String[] args)
     {

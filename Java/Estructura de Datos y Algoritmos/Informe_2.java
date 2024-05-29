@@ -25,79 +25,174 @@
     - Debe existir un main con el cual se puedan utilizar todas las funciones y probar su utilidad.
     - Utilizar clases y objetos para representar canciones, el historial de reproducción y las colas de reproducción.
     - Utilizar la clase LinkedList para implementar la Biblioteca, la cual es una Lista de Colas de reproducción.
+
+    Además de estas operaciones básicas, puedes considerar agregar las siguientes opciones para enriquecer la funcionalidad del sistema:
+
+    1. Buscar Canción: Permite al usuario buscar una canción por su título o artista en la cola de reproducción o en el historial (muestra lo encontrado).
+
+    2. Crear Cola de Reproducción Personalizada: Permite al usuario crear colas de reproducción personalizadas agrupando canciones según sus preferencias (Relacionado con Biblioteca de Reproducción).
+
+    3. Reproducir Playlist: Elimina la actual cola de reproducción y pone la playlist seleccionada de la biblioteca de Reproducción.
+
+    4. Estadísticas de Reproducción: Muestra al usuario estadísticas sobre las canciones más reproducidas, duración total de reproducción usando como medida la unidad mas grande posible a representar (segundos, minutos, horas, etc). Utilizando la información de las colas de reproducción y el historial.
+
+    5. Mostrar siguientes: Enseña las siguientes 10 canciones a reproducir.
+
+    6. Mostrar Historial de Reproducción: Enseña las últimas 10 canciones (si es que existen) presentes en el historial.
 */
 
-import java.util.Queue;
 import java.util.Stack;
-import java.util.LinkedList;
 
 public class Informe_2
 {
     public static void main(String[] args)
     {
         Reproductor reproductor = new Reproductor();
-        Cancion rich_flex = new Cancion("Rich Flex", "Drake", "7:37");
-        reproductor.agregar_cancion(rich_flex);
-        // reproductor.eliminar_cancion(rich_flex);
+        
+        Cancion s1 = new Cancion("Time Flies", "Drake", 180);
+        Cancion s2 = new Cancion("Cancion 2", "Artista 2", 60);
+        Cancion s3 = new Cancion("Cancion 3", "Artista 3", 210);
+
+        reproductor.agregar_cancion(s1);
+        reproductor.agregar_cancion(s2);
+        reproductor.agregar_cancion(s3);
+
+        reproductor.eliminar_cancion("Cancion 3", "Artista 3");
+
+        // Ver lista de reproduccion
+        reproductor.mostrar_siguientes();
+
+        reproductor.buscar_cancion("Time Flies", "Drake");
+
         reproductor.reproducir();
+        reproductor.reproducir();
+
+        // Ver historial
+        reproductor.mostrar_historial();
     }
 
     public static class Cancion
     {
-        private String titulo, artista, duracion;
-        
-        Cancion(String titulo, String artista, String duracion)
+        private String titulo, artista;
+        private int duracion;
+        private Cancion next;
+
+        Cancion(String titulo, String artista, int duracion)
         {
             this.titulo = titulo;
             this.artista = artista;
             this.duracion = duracion;
+            this.next = null;
         }        
     }
 
     public static class Reproductor
     {
-        private Queue<Cancion> cola;
+        private Cancion head;
         private Stack<Cancion> historial;
-
+        
         public Reproductor()
         {
-            this.cola = new LinkedList<>();
-            this.historial = new Stack<>();
+            historial = new Stack<>();
         }
-
-        void agregar_cancion(Cancion e)
+        public void agregar_cancion(Cancion song)
         {
-            cola.add(e);
-            System.out.println("Se ha agregado la cancion '" + e.titulo + "'");
-        }
-
-        void eliminar_cancion(Cancion e)
-        {
-            Queue<Cancion> temp = new LinkedList<>();
-
-            for (int i = 0; i < cola.size(); ++i)
+            if (head == null)
             {
-                if (cola.poll().titulo != e.titulo && cola.poll().artista != e.artista)
-                {
-                    temp.add(cola.poll());
-                } else
-                {
-                    System.out.println("Se ha eliminado la cancion '" + e.titulo + "'");
-                }
+                head = song;
             }
+            else
+            {
+                Cancion current = head;
+                while (current.next != null)
+                {
+                    current = current.next;
+                }
+                current.next = song;
+            }
+        }
+
+        public void eliminar_cancion(String nombre, String artista)
+        {
+            if (head == null)
+            {
+                System.out.println("La lista de reproduccion esta vacia");
+                return;
+            }
+
+            if (head.titulo == nombre && head.artista == artista)
+            {
+                head = head.next;
+                System.out.println("La cancion " + nombre + " de " + artista + " se ha eliminado");
+                return;
+            }
+
+            Cancion current = head;
+            while (current.next != null)
+            {
+                if (current.next.titulo == nombre && current.next.artista == artista)
+                {
+                    current.next = current.next.next;
+                    System.out.println("La cancion " + nombre + " de " + artista + " se ha eliminado");
+                    return;
+                }
+                current = current.next;
+            }
+
+            System.out.println("La cancion " + nombre + " de " + artista + " no se encuentra en la lista de reproduccion");
         }
 
         void reproducir()
         {
-            if (cola.isEmpty())
+            if (head != null)
             {
-                System.out.println("La cola de canciones está vacía. No hay canciones para reproducir.");
-                return;
-            } else
+                System.out.println("Reproduciendo " + head.titulo + " de " + head.artista);
+                historial.push(head);
+                head = head.next;
+            }
+            else
             {
-                Cancion cancion_actual = cola.poll();
-                System.out.println("Reproduciendo: " + cancion_actual.titulo);
-                historial.push(cancion_actual);
+                System.out.println("La lista de reproduccion esta vacia");
+            }
+        }
+
+        void buscar_cancion(String nombre, String artista)
+        {
+            Cancion current = head;
+            while (current != null)
+            {
+                if (current.titulo == nombre || current.artista == artista)
+                {
+                    System.out.println("Cancion encontrada: " + current.titulo + " de " + current.artista);
+                }
+                current = current.next;
+            }
+        }
+
+        void mostrar_siguientes()
+        {
+            System.out.println("Lista de reproduccion:");
+            Cancion current = head;
+            int count = 1;
+            while (current != null && count <= 10)
+            {
+                System.out.println("Titulo: " + current.titulo + ", Artista: " + current.artista + ", Duracion: " + current.duracion);
+                current = current.next;
+                count++;
+            }
+        }
+
+        void mostrar_historial()
+        {
+            System.out.println("Historial de reproduccion:");
+            int counter = 0;
+            for (Cancion song : historial)
+            {
+                if (counter == 10) {
+                    break;
+                }
+                System.out.println("Titulo: " + song.titulo + ", Artista: " + song.artista + ", Duracion: " + song.duracion);
+                counter++;
             }
         }
     }

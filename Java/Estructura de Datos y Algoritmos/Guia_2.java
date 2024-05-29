@@ -1,4 +1,28 @@
 /*
+Guia 2: Estructuras de datos, tipo de dato abstracto y recursion
+*/
+
+/*
+Para cada una de las siguientes preguntas diseñe los algoritmos correspondientes y analice la complejidad de
+su algoritmo en términos de O(n).
+
+I. Sea una lista enlazada definida:
+
+class LinkedList {
+    class Node {
+        int value;
+        Node next;
+    }
+    Node Head;
+}
+
+Diseñe el método invertir_lista, que recibe el head de una lista para modificarla y dejarla en orden inverso.
+
+a. Diseñe el método invertir de forma iterativa.
+b. Diseñe el método invertir de forma recursiva.
+*/
+
+/*
 II. Diseñe un algoritmo que reciba como entrada un arreglo de enteros A y luego lo invierta.
 
 a. Diseñe un algoritmo que utilice un stack como estructura de datos auxiliar para invertir el arreglo.
@@ -14,18 +38,50 @@ Output:
 A’ = {7, 6, 3, 2, 1}
 */
 
-import java.util.Stack;
+import java.util.*;
 
-public class Guia_E2_04_16_2024
-{
+public class Guia_2
+{   
     public static void main(String[] args)
     {
-        int[] array = {1, 2, 3, 6, 7};
-        print_array(invert_array_recursively(array, new int[array.length], 0));
+
+    }
+    
+    class LinkedList
+    {
+        class Node
+        {
+            int value;
+            Node next;
+    
+            Node(int value)
+            {
+                this.value = value;
+            }
+        }
+    
+        Node head;
+
+        public void invertir_lista(Node head)
+        {
+            Node prev = null;
+            Node current = head;
+            Node next = null;
+
+            while (current != null)
+            {
+                next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+
+            head = prev;
+        }
     }
 
     public static void print_array(int[] array)
-    {
+        {
         for (int i = 0; i < array.length; i++)
         {
             System.out.println(array[i]);
