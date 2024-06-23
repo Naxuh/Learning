@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Class_04_02_2024
 {
-    public static void main(String [] args)
+    public static void main(String[] args)
     {
         Stack<Integer> stack = new Stack<Integer>(); // Create a stack
 
@@ -17,65 +17,65 @@ public class Class_04_02_2024
         System.out.println("Stack: " + stack);
 
         // Remove the top element from the stack
-        int removed_element_stack = stack.pop();
-        System.out.println("Removed element: " + removed_element_stack);
+        int removedElementStack = stack.pop();
+        System.out.println("Removed element: " + removedElementStack);
 
         // See the top element of the stack without removing it
-        int top_element_without_removing = stack.peek();
-        System.out.println("Top element without removing: " + top_element_without_removing);
+        int topElementWithoutRemoving = stack.peek();
+        System.out.println("Top element without removing: " + topElementWithoutRemoving);
 
         // Print the stack after removing an element
         System.out.println("Stack after removing an element: " + stack);
 
-        // Crear una cola
+        // Create a queue
         Queue<Integer> queue = new LinkedList<>();
 
-        // Agregar elementos a la cola
+        // Add elements to the queue
         queue.add(1);
         queue.add(2);
         queue.add(3);
 
-        // Imprimir la cola
-        System.out.println("Cola: " + queue);
+        // Print the queue
+        System.out.println("Queue: " + queue);
 
-        // Quitar el elemento del frente de la cola
-        int removed_element_queue = queue.poll();
-        System.out.println("Elemento quitado: " + removed_element_queue);
+        // Remove the element from the front of the queue
+        int removedElementQueue = queue.poll();
+        System.out.println("Removed element: " + removedElementQueue);
 
-        // Ver el elemento del frente de la cola sin quitarlo
-        int front_element_without_removing = queue.peek();
-        System.out.println("Elemento del frente sin quitar: " + front_element_without_removing);
+        // See the element at the front of the queue without removing it
+        int frontElementWithoutRemoving = queue.peek();
+        System.out.println("Element at the front without removing: " + frontElementWithoutRemoving);
 
-        // Imprimir la cola después de quitar un elemento
-        System.out.println("Cola después de quitar un elemento: " + queue);
+        // Print the queue after removing an element
+        System.out.println("Queue after removing an element: " + queue);
 
-        // Crear una linked list
-        LinkedList<Integer> linked_list = new LinkedList<>();
+        // Create a linked list
+        LinkedList<Integer> linkedList = new LinkedList<>();
 
-        // Agregar elementos a la linked list
-        linked_list.add(1);
-        linked_list.add(2);
-        linked_list.add(3);
+        // Add elements to the linked list
+        linkedList.add(1);
+        linkedList.add(2);
+        linkedList.add(3);
 
-        // Imprimir la linked list
-        System.out.println("Linked list: " + linked_list);
+        // Print the linked list
+        System.out.println("Linked list: " + linkedList);
 
-        // Quitar un elemento de la linked list
-        linked_list.remove(1);
-        System.out.println("Linked list después de quitar un elemento: " + linked_list);
+        // Remove an element from the linked list
+        linkedList.remove(1);
+        System.out.println("Linked list after removing an element: " + linkedList);
 
-        // Verificar si la linked list contiene un elemento
-        boolean contains_element = linked_list.contains(2);
-        System.out.println("La linked list contiene el elemento 2: " + contains_element);
+        // Check if the linked list contains an element
+        boolean containsElement = linkedList.contains(2);
+        System.out.println("The linked list contains the element 2: " + containsElement);
 
-        // Obtener el tamaño de la linked list
-        int size_linked_list = linked_list.size();
-        System.out.println("Tamaño de la linked list: " + size_linked_list);
+        // Get the size of the linked list
+        int sizeLinkedList = linkedList.size();
+        System.out.println("Size of the linked list: " + sizeLinkedList);
 
-        // Obtener el elemento en una posición específica
-        int element_at_index = linked_list.get(0);
+        // Get the element at a specific position
+        int elementAtIndex = linkedList.get(0);
 
-        // Reemplazar un elemento en una posición específica
-        linked_list.set(0, 4);
+        // Replace an element at a specific position
+        linkedList.set(0, 4);
     }
 }

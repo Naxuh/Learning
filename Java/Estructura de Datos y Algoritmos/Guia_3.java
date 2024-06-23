@@ -24,13 +24,25 @@
         b. BubbleSort: Tiempo de ejecución para el peor caso: O(n^2)
 
         c. MergeSort: Tiempo de ejecución para el peor caso: O(nlogn)
-    
-    2. Busqueda binaria
-        
-        Resuelva cada uno de los siguientes problemas modificando el algoritmo de busqueda binaria estudiado en
-        clases, asuma que los arreglos de entrada ya estan previamente ordenados para cada problema.
+*/
 
-        i. Buscar palabras
+public class Guia_3
+{
+    public static void main(String[] args)
+    {
+        // i. Buscar palabras
+        String[] words = {"Aire", "Basura", "Bicicleta", "Guitarra", "Zapato"};
+        String target = "Guitarra";
+        i(words, target);
+
+        // ii. Frecuencias
+        int[] arr = {1, 2, 3, 3, 3, 6, 52, 421};
+        int key = 3;
+        System.out.println(ii(arr, key));
+    }
+
+    /*
+    i. Buscar palabras
 
         Sea un arreglo de palabras ordenado en orden lexicografico, disene un algoritmo de busqueda binaria
         que retorne un booleano, dicho valor representa si la palabra buscada esta presente en el arreglo o no.
@@ -43,17 +55,9 @@
         b. Ejemplo:
         Input: {Aire, Basura, Bicicleta, Guitarra, Zapato}, Zapatilla.
         Output: false, la palabra zapatilla no esta presente en el arreglo.
-*/
+    */
 
-public class Guia_3
-{
-    public static void main(String[] args)
-    {
-        String[] words = {"a","b","c","d"};
-        binary_search(words, "c");
-    }
-
-    public static void binary_search(String[] words, String target)
+    public static void i(String[] words, String target) // binary search for a word in an array of words
     {
         int left = 0;
         int right = words.length - 1;
@@ -72,4 +76,54 @@ public class Guia_3
         }
         System.out.println("false, la palabra " + target + " no está presente en el arreglo.");
     }
+
+    /*
+    ii. Frecuencias
+    Sea un arreglo de numeros enteros ordenados de manera ascendente, disene un algoritmo de busqueda
+    binaria que retorne la cantidad de repeticiones que tiene un elemento en el arreglo. Describa el tiempo
+    de ejecucion de su algoritmo utilizando la notacion O(f(n))
+
+    a. Ejemplo:
+    Input: { 1, 2, 3, 3, 3, 6, 52, 421}, 3
+    Output: 3, el numero tres esta presente 3 veces en el arreglo.
+
+    b. Ejemplo:
+    Input: { 1, 2, 3, 3, 3, 6, 52, 421}, 5
+    Output: 0, el numero cinco no esta presente en el arreglo.
+    */
+
+    public static int ii(int[] arr, int target) // count the number of times target appears in arr
+    {
+        int low = 0;
+        int high = arr.length - 1;
+        int counter = 0;
+
+        while (low <= high)
+        {
+            int mid = low + (high - low) / 2;
+            if (arr[mid] == target)
+            {
+                counter++;
+                int left = mid - 1;
+                int right = mid + 1;
+                while (left >= 0 && arr[left] == target)
+                {
+                    counter++;
+                    left--;
+                }
+                while (right < arr.length && arr[right] == target)
+                {
+                    counter++;
+                    right++;
+                }
+                return counter;
+            }
+            if (arr[mid] < target)
+                low = mid + 1;
+            else high = mid - 1;
+        }
+        return -1;
+    }
+
+
 }

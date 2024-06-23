@@ -19,10 +19,10 @@ public class Lab_03_21_2024
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el rut sin digito verificador: ");
         int rut = scanner.nextInt();
-        devolver_dv(rut);
+        digito(rut);
         scanner.close();
     }
-    public static void devolver_dv(int rut)
+    public static void digito(int rut)
     {
         int[] serie = {2, 3, 4, 5, 6, 7};
         int suma = 0;

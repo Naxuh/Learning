@@ -1,17 +1,17 @@
 /*
 Enunciado 3:
 Considere que un Librero es una colección de Libros. Asumiendo que existe la clase Libro con los métodos
-getTitulo() y getAutor(), que retorna el nombre del libro y el nombre del autor del libro (ambos string)
+get_titulo() y get_autor(), que retorna el nombre del libro y el nombre del autor del libro (ambos string)
 respectivamente, se pide que genere:
 a) (05 puntos) La clase Librero que se compone de un nombre (string) y dirección (string) que jamás
 cambian y de un vector de Libros que comienza vacío.
-b) (05 puntos) El método ingresarLibro(Libro *L) de la clase Librero que permite ingresar un libro al vector
+b) (05 puntos) El método ingresar_libro(Libro *L) de la clase Librero que permite ingresar un libro al vector
 de libros siempre y cuando dicho libro no esté previamente ingresado. Si el libro es ingresado o ya se
 encuentra en el vector, lo deberá señalar con un mensaje acorde a la situación.
-c) (05 puntos) El método sacarLibro(string titulo) que elimina del vector el libro cuyo título coincide con
+c) (05 puntos) El método sacar_libro(string titulo) que elimina del vector el libro cuyo título coincide con
 el parámetro del método. Si el libro es retirado o no se encuentra en el vector, lo deberá señalar con un
 mensaje acorde a la situación.
-d) (05 puntos) El método imprimirLibrosDelAutor(string autor) que imprime el título de todos los libros
+d) (05 puntos) El método imprimir_libros_del_autor(string autor) que imprime el título de todos los libros
 del autor cuyo nombre coincide con el parámetro del método. Asuma que, esn este caso, siempre habrá
 uno o más libros que pertenezcan al autor.
 */

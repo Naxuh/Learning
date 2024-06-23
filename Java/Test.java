@@ -1,12 +1,10 @@
-public class Test {
+
+public class Test
+{
     public static void main(String[] args)
     {
-        System.out.println(f(100));
-    }
+        System.out.println("Hello, World!");
 
-    public static int f(int n) // f(100)
-    {
-        if (n == 0) return 0;
-        return f(n - 1) + n;
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
     }
 }

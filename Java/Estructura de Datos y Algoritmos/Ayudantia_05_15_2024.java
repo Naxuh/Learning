@@ -13,7 +13,7 @@ public class Ayudantia_05_15_2024
     public static void main(String[] args)
     {
         int[] array = {75, 70, 66, 63, 1 ,77 ,78, 27, 56, 8};
-        selection_sort(array);
+        selectionSort(array);
         print(array);
     }
 
@@ -21,12 +21,11 @@ public class Ayudantia_05_15_2024
     {
         for (int i : arr)
         {
-            System.out.print(i + " ");
+            System.out.println(i);
         }
-        System.out.println();
     }
 
-    public static void bubble_sort(int[] arr)
+    public static void bubbleSort(int[] arr)
     {
         int aux;
         for (int i = 0; i < 10; ++i)
@@ -43,7 +42,7 @@ public class Ayudantia_05_15_2024
         }
     }
 
-    public static void selection_sort(int[] arr)
+    public static void selectionSort(int[] arr)
     {
         for (int i = 0; i < arr.length - 1; ++i)
         {

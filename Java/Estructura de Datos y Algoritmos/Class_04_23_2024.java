@@ -6,8 +6,8 @@ public class Class_04_23_2024
 {
     public static void main(String[] args)
     {
-        int[] array = {2,1,4,3};
-        merge_sort(array, 0, 4);
+        int[] array = {2, 4, 1, 6, 8, 5, 3, 7, 9, 0};
+        mergeSort(array, 0, array.length - 1);
 
         for (int i : array)
         {
@@ -18,7 +18,7 @@ public class Class_04_23_2024
     public static void merge(int [] a, int lo, int mid, int hi)
     {
         int[] left = new int[mid - lo + 1];
-        int[] right = new int[hi - mid - 1];
+        int[] right = new int[hi - mid];
 
         for (int i = 0; i < left.length; i++)
         {
@@ -32,7 +32,7 @@ public class Class_04_23_2024
 
         int i = 0, j = 0, k = lo;
 
-        while (i < (mid - lo + 1) && j < (hi - mid - 1))
+        while (i < left.length && j < right.length)
         {
             if (left[i] <= right[j])
             {
@@ -47,14 +47,14 @@ public class Class_04_23_2024
             k++;
         }
 
-        while (i < (mid - lo + 1))
+        while (i < left.length)
         {
             a[k] = left[i];
             i++;
             k++;
         }
 
-        while (j < (hi - mid - 1))
+        while (j < right.length)
         {
             a[k] = right[j];
             j++;
@@ -62,13 +62,13 @@ public class Class_04_23_2024
         }
     }
 
-    public static void merge_sort(int[] a, int lo, int hi)
+    public static void mergeSort(int[] a, int lo, int hi)
     {
         if (lo < hi)
         {
-            int mid = (lo + hi) / 2 - 1;
-            merge_sort(a, lo, mid);
-            merge_sort(a, mid + 1, hi);
+            int mid = (lo + hi) / 2;
+            mergeSort(a, lo, mid);
+            mergeSort(a, mid + 1, hi);
             merge(a, lo, mid, hi);
         }
     }

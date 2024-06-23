@@ -1,6 +1,6 @@
 /*
 Ejercicio de desarrollo (03/27/2024)
-Diseña una solución algorítmica para el siguiente problema y analiza el tiempo de ejecución utilizando notación O(n).
+Diseña una solución algorítmica para el siguiente problema y analiza el tiempo de ejecución utilizando notación O(f(n)).
 
 1.1 Pares entre 2 filas
 Diseña un programa que, dada una matriz de tamaño m × n, encuentre todos los pares de números pares que están en dos filas diferentes de la matriz.
@@ -49,11 +49,11 @@ public class Informe_1
         int r1 = scanner.nextInt();
         int r2 = scanner.nextInt();
 
-        encontrar_pares(matriz, r1, r2);
+        encontrarPares(matriz, r1, r2);
 
         scanner.close();
     }
-    public static void encontrar_pares(int[][] matrix, int r1, int r2)
+    public static void encontrarPares(int[][] matrix, int r1, int r2)
     {
         System.out.println("Pares de numeros pares en las filas " + r1 + " y " + r2 + ":");
 

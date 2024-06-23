@@ -1,15 +1,17 @@
-public class BinarySearch
+class BinarySearch
 {
     public static void main(String[] args)
     {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7}; // arr[6]
-        System.out.println(binary_search_rc(arr, 6, 0, 6));
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+        int target = 5;
+        System.out.println(bsi(arr, target));
     }
 
-    public static int binary_search_it(int[] arr, int target) // Forma iterativa
+    static int bsi(int[] arr, int target) // Iterative binary search
     {
         int low = 0;
         int high = arr.length - 1;
+
         while (low <= high)
         {
             int mid = low + (high - low) / 2;
@@ -22,7 +24,7 @@ public class BinarySearch
         return -1;
     }
 
-    public static int binary_search_rc(int[] arr, int target, int low, int high) // Forma recursiva
+    static int bse(int[] arr, int target, int low, int high) // Recursive binary search
     {
         if (high < low)
             return -1;
@@ -31,8 +33,8 @@ public class BinarySearch
             return mid;
         // Revisar si target es menor que arr[mid], llamar a la funcion con los nuevos limites
         if (arr[mid] < target)
-            return binary_search_rc(arr, target, mid + 1, high);
+            return bse(arr, target, mid + 1, high);
 
-        else return binary_search_rc(arr, target, low, mid - 1);
+        else return bse(arr, target, low, mid - 1);
     }
 }

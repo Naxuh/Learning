@@ -1,6 +1,6 @@
 /*
 Enunciado 1:
-en el último cyber day el sitio programadores avanzados.cl, trataba de convencer a los clientes para que no
+En el último cyber day el sitio x, trataba de convencer a los clientes para que no
 dejasen el carrito abandonado y efectuaran la compra.
 la solución era simple, utilizaban una clase llamada carrito que contaba con tres atributos: un vector de enteros
 con los montos de los productos del carrito, un atributo entero que corresponde al tipo de cliente que estaba

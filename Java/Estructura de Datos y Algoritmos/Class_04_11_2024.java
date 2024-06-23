@@ -9,15 +9,7 @@ public class Class_04_11_2024
 {
     public static void main(String[] args)
     {
-        Scanner scanner = new Scanner(System.in);
-
-        // int num = scanner.nextInt();
-        // System.out.println(binario(num));
-
-        String word = scanner.nextLine();
-        palindroma(word);
-
-        scanner.close();
+        palindroma("Hannah");
     }
 
     public static int binario(int x) // 1
@@ -31,6 +23,7 @@ public class Class_04_11_2024
         for (int i = 0; i < word.length() / 2; i++) {
             if (word.toLowerCase().charAt(i) != word.toLowerCase().charAt(word.length() - 1 - i)) {
                 System.out.println("No es palindroma");
+                return;
             }
         }
         System.out.println("Es palindroma");

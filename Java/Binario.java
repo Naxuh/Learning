@@ -3,10 +3,10 @@
 public class Binario {
     public static void main(String[] args)
     {
-
+        System.out.println(binaryToDecimal(1010));
     }
 
-    public static int decimal_to_binary(int decimal)
+    public static int decimalToBinary(int decimal)
     {
         int binary = 0;
         int base = 1;
@@ -22,7 +22,7 @@ public class Binario {
         return binary;
     }
 
-    public static int binary_to_decimal(int binary)
+    public static int binaryToDecimal(int binary)
     {
         int decimal = 0;
         int base = 1;

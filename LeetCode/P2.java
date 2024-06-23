@@ -27,7 +27,7 @@ public class P2
         l2.next = new ListNode(6);
         l2.next.next = new ListNode(4);
 
-        ListNode result = add_two_numbers(l1, l2);
+        ListNode result = addTwoNumbers(l1, l2);
         while (result != null) {
             System.out.print(result.val + " ");
             result = result.next;
@@ -49,7 +49,7 @@ public class P2
         }
     }
     
-    public static ListNode add_two_numbers(ListNode l1, ListNode l2)
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2)
     {
         ListNode result = new ListNode();
         ListNode current = result;

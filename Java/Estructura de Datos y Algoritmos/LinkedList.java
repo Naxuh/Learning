@@ -1,4 +1,4 @@
-public class Linked_List
+public class LinkedList
 {
     private Node head;
     private static class Node
@@ -13,7 +13,7 @@ public class Linked_List
     }
 
     // Agrega un elemento al final de la lista
-    public void add_last(int value)
+    public void addLast(int value)
     {
         var new_node = new Node(value);
 
@@ -32,7 +32,7 @@ public class Linked_List
     }
 
     // Agrega un elemento al principio de la lista
-    public void add_first(int value)
+    public void addFirst(int value)
     {
         Node new_node = new Node(value);
         new_node.next = head;
@@ -82,18 +82,27 @@ public class Linked_List
         Node current = head;
         while (current != null)
         {
-            System.out.println(current.value + " ");
+            System.out.println(current.value);
             current = current.next;
         }
     }
 
     public static void main(String[] args)
     {
-        var linked_list = new Linked_List();
-        linked_list.add_last(1);
-        linked_list.add_last(2);
-        linked_list.add_last(3);
-        linked_list.print();
+        LinkedList list = new LinkedList();
+
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(4);
+        list.addLast(5);
+        list.addLast(6);
+
+        list.remove(2);
+
+        System.out.println(list.contains(2));
+
+        list.print();
     }
 }
 

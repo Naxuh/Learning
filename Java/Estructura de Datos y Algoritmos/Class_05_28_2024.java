@@ -5,119 +5,156 @@
 import java.util.Queue;
 import java.util.LinkedList;
 
-public class Class_05_28_2024
-{
-    public static void main(String[] args)
-    {
+public class Class_05_28_2024 {
+    public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
-        // Insertar nodos en el bst
-        bst.insert(10);
+
+        // Insert nodes in the bst
+        bst.insert(1);
+        bst.insert(1);
         bst.insert(2);
         bst.insert(3);
-        bst.insert(12);
         bst.insert(0);
         bst.insert(5);
-        bst.insert(1);
-        bst.insert(17);
-        bst.insert(8);
-        bst.insert(6);
-        bst.print_tree(bst.root, "", true);
-        bst.level_order();
+        bst.insert(7);
+
+        bst.printTree(bst.root, "", true);
+
+        bst.search(7);
+
+        System.out.println(bst.height(bst.root));
     }
 
-    public static class BinarySearchTree
-    {
-        public class Node
-        {
+    public static class BinarySearchTree {
+        public class Node {
             int value;
             Node left;
             Node right;
-        
-            Node(int value)
-            {
+
+            Node(int value) {
                 this.value = value;
                 left = right = null;
             }
         }
-        
+
         private Node root;
 
-        BinarySearchTree()
-        {
+        BinarySearchTree() {
             this.root = null;
         }
 
-        public void insert(int element)
-        {
-            Node temp = new Node(element);
+        public void insert(int value) {
+            Node temp = new Node(value);
 
-            if (root == null)
-            {
-                root = temp; // Si el árbol está vacío, la nueva raíz es temp
-                return;     // Salimos del método
+            if (root == null) {
+                root = temp; // If the tree is empty, the new root is temp
+                return; // Exit the method
             }
 
             Node aux = root;
-            while (aux != null)
-            {
-                if (aux.value > element)
-                {
-                    if (aux.left == null)
-                    {
+
+            while (aux != null) {
+                if (value < aux.value) {
+                    if (aux.left == null) {
                         aux.left = temp;
                         return;
-                    }
-                    else
-                    {
+                    } else {
                         aux = aux.left;
                     }
-                } else // aux.value <= element
+                } else // value >= aux.value
                 {
-                    if (aux.right == null)
-                    {
+                    if (aux.right == null) {
                         aux.right = temp;
                         return;
-                    }
-                    else
-                    {
+                    } else {
                         aux = aux.right;
                     }
                 }
             }
         }
 
-        public void level_order() {
-            if (root == null) {
-                return; // Árbol vacío
-            }
-    
-            Queue<Node> cola = new LinkedList<>();
-            cola.offer(root); // Encolamos la raíz
-    
-            while (!cola.isEmpty()) {
-                Node actual_node = cola.poll(); // Desencolamos el nodo actual
-                System.out.println(actual_node.value); // Procesamos el nodo
-    
-                // Encolamos los hijos (si existen)
-                if (actual_node.left != null) {
-                    cola.offer(actual_node.left);
+        public void search(int value) {
+            Node current = root;
+
+            while (current != null) {
+                if (value < current.value) {
+                    current = current.left;
+                } else if (value > current.value) {
+                    current = current.right;
+                } else {
+                    System.out.println("The value " + value + " is found in the tree");
+                    return;
                 }
-                if (actual_node.right != null) {
-                    cola.offer(actual_node.right);
+            }
+
+            System.out.println("The value " + value + " is not found in the tree");
+        }
+
+        public int height(Node root) {
+            if (root == null) {
+                return -1;
+            }
+
+            int leftHeight = height(root.left);
+            int rightHeight = height(root.right);
+
+            if (leftHeight > rightHeight) {
+                return leftHeight + 1;
+            } else {
+                return rightHeight + 1;
+            }
+        }
+
+        public boolean isBalanced(Node node)
+        {
+            if (node == null)
+            {
+                return true;
+            }
+
+            int leftHeight = height(node.left);
+            int rightHeight = height(node.right);
+
+            if (Math.abs(leftHeight - rightHeight) <= 1 && isBalanced(node.left) && isBalanced(node.right))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void levelOrder() {
+            if (root == null) {
+                return; // Empty tree
+            }
+
+            Queue<Node> queue = new LinkedList<>();
+            queue.offer(root); // Enqueue the root
+
+            while (!queue.isEmpty()) {
+                Node currentNode = queue.poll(); // Dequeue the current node
+                System.out.println(currentNode.value); // Process the node
+
+                // Enqueue the children (if any)
+                if (currentNode.left != null) {
+                    queue.offer(currentNode.left);
+                }
+                if (currentNode.right != null) {
+                    queue.offer(currentNode.right);
                 }
             }
         }
 
-        private void print_tree(Node node, String prefix, boolean is_tail)
-        {
-            if(node.right != null) {
-                print_tree(node.right, prefix + (is_tail ? "│   " : "    "), false);
+        public void printTree(Node node, String prefix, boolean isTail) {
+            if (node.right != null) {
+                printTree(node.right, prefix + (isTail ? "│   " : "    "), false);
             }
-            System.out.println(prefix + (is_tail ? "└── " : "┌── ") + node.value);
-            if(node.left!=null) {
-                print_tree(node.left, prefix + (is_tail ? "    " : "│   "), true);
+
+            System.out.println(prefix + (isTail ? "└── " : "┌── ") + node.value);
+
+            if (node.left != null) {
+                printTree(node.left, prefix + (isTail ? "    " : "│   "), true);
             }
         }
     }
 }
-

@@ -9,12 +9,10 @@ public class Class_04_16_2024
     public static void main(String[] args)
     { 
         int[] array = {4, 3, 2, 10, 12, 1, 5, 6};
-        // selection_sort(array);
-        // insertion_sort(array);
         print(array);
     }
 
-    public static void selection_sort(int arr[]) {
+    public static void selectionSort(int arr[]) {
         int n = arr.length;
     
         for (int i = 0; i < n - 1; i++)
@@ -30,7 +28,7 @@ public class Class_04_16_2024
         }
     }
 
-    public static void insertion_sort(int arr[])
+    public static void insertionSort(int arr[])
     {
         for (int i = 1; i < arr.length; ++i)
         {

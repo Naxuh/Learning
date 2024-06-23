@@ -2,8 +2,9 @@
 Algoritmos:
 ● Para finalizar con la materia, enunciamos dos métodos bien útiles que
 pueden ser encontrados en la librería <algorithm>
-    ○ sort
-    ○ binary_search
+
+    ● sort
+    ● binary_search
 
 ● sort nos permitirá ordenar los elementos (por ejemplo de un vector) en un
 cierto orden (por defecto de menor a mayor), utiliza IntroSort, una mezcla
@@ -14,13 +15,13 @@ elemento en, por ejemplo, un vector (el cual debe estar ordenado)
 */
 
 /*
-1. La empresa JUSTinTV está desarrollando una nueva funcionalidad para su servicio de
+1. La empresa x está desarrollando una nueva funcionalidad para su servicio de
 streaming, en especial para efectuar speed-runs entre amigos. Esta funcionalidad está
 destinada para que la gente que mira, pueda efectuar sus donaciones mientras los amigos
 compiten. Esta funcionalidad posee una clase con los siguientes elementos:
-○ Un vector de stacks, en donde se van guardando las donaciones. La posición i del vector
+● Un vector de stacks, en donde se van guardando las donaciones. La posición i del vector
 corresponde a las donaciones efectuadas al jugador i.
-○ Un vector de strings, con los nombres de los jugadores(mismo orden con lo anterior).
+● Un vector de strings, con los nombres de los jugadores(mismo orden con lo anterior).
 
 Se pide:
 

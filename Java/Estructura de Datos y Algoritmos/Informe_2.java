@@ -5,19 +5,19 @@
     Se debe diseñar e implementar un sistema de reproducción de música utilizando el lenguaje de programación
     Java. El sistema debe ser capaz de realizar las siguientes operaciones:
     
-    1. Agregar Canción: Permite al usuario agregar una nueva canción al sistema, incluyendo su título, artista
+    1. Agregar canción: Permite al usuario agregar una nueva canción al sistema, incluyendo su título, artista
     y duración. Las canciones agregadas se colocarán en la cola de reproducción.
     
-    2. Eliminar Canción: Permite al usuario eliminar una canción del sistema utilizando su nombre y artista.
+    2. Eliminar canción: Permite al usuario eliminar una canción del sistema utilizando su nombre y artista.
     La canción se eliminará de la cola de reproducción.
     
-    3. Historial de Reproducción: Mantiene un registro de las canciones reproducidas por el usuario en orden
+    3. Historial de reproducción: Mantiene un registro de las canciones reproducidas por el usuario en orden
     cronológico inverso, utilizando un stack para el historial.
     
     4. Reproducir: Permite al usuario reproducir la siguiente canción de la cola de reproducción en el orden en
     que fueron agregadas (elimina la actual de la cola de reproducción y avanza al siguiente).
     
-    5. Biblioteca de Reproducción: Permite al usuario generar nuevas colas de reproducción y gestionarlas.
+    5. Biblioteca de reproducción: Permite al usuario generar nuevas colas de reproducción y gestionarlas.
     La biblioteca se manejará como una Lista de Colas, donde cada elemento de la lista representa una cola
     de reproducción independiente.
     
@@ -28,17 +28,17 @@
 
     Además de estas operaciones básicas, puedes considerar agregar las siguientes opciones para enriquecer la funcionalidad del sistema:
 
-    1. Buscar Canción: Permite al usuario buscar una canción por su título o artista en la cola de reproducción o en el historial (muestra lo encontrado).
+    1. Buscar canción: Permite al usuario buscar una canción por su título o artista en la cola de reproducción o en el historial (muestra lo encontrado).
 
-    2. Crear Cola de Reproducción Personalizada: Permite al usuario crear colas de reproducción personalizadas agrupando canciones según sus preferencias (Relacionado con Biblioteca de Reproducción).
+    2. Crear cola de reproducción personalizada: Permite al usuario crear colas de reproducción personalizadas agrupando canciones según sus preferencias (Relacionado con Biblioteca de Reproducción).
 
-    3. Reproducir Playlist: Elimina la actual cola de reproducción y pone la playlist seleccionada de la biblioteca de Reproducción.
+    3. Reproducir playlist: Elimina la actual cola de reproducción y pone la playlist seleccionada de la biblioteca de Reproducción.
 
-    4. Estadísticas de Reproducción: Muestra al usuario estadísticas sobre las canciones más reproducidas, duración total de reproducción usando como medida la unidad mas grande posible a representar (segundos, minutos, horas, etc). Utilizando la información de las colas de reproducción y el historial.
+    4. Estadísticas de reproducción: Muestra al usuario estadísticas sobre las canciones más reproducidas, duración total de reproducción usando como medida la unidad mas grande posible a representar (segundos, minutos, horas, etc). Utilizando la información de las colas de reproducción y el historial.
 
     5. Mostrar siguientes: Enseña las siguientes 10 canciones a reproducir.
 
-    6. Mostrar Historial de Reproducción: Enseña las últimas 10 canciones (si es que existen) presentes en el historial.
+    6. Mostrar historial de reproducción: Enseña las últimas 10 canciones (si es que existen) presentes en el historial.
 */
 
 import java.util.Stack;
@@ -53,22 +53,22 @@ public class Informe_2
         Cancion s2 = new Cancion("Cancion 2", "Artista 2", 60);
         Cancion s3 = new Cancion("Cancion 3", "Artista 3", 210);
 
-        reproductor.agregar_cancion(s1);
-        reproductor.agregar_cancion(s2);
-        reproductor.agregar_cancion(s3);
+        reproductor.agregarCancion(s1);
+        reproductor.agregarCancion(s2);
+        reproductor.agregarCancion(s3);
 
         reproductor.eliminar_cancion("Cancion 3", "Artista 3");
 
         // Ver lista de reproduccion
-        reproductor.mostrar_siguientes();
+        reproductor.mostrarSiguientes();
 
-        reproductor.buscar_cancion("Time Flies", "Drake");
+        reproductor.buscarCancion("Time Flies", "Drake");
 
         reproductor.reproducir();
         reproductor.reproducir();
 
         // Ver historial
-        reproductor.mostrar_historial();
+        reproductor.mostrarHistorial();
     }
 
     public static class Cancion
@@ -95,7 +95,7 @@ public class Informe_2
         {
             historial = new Stack<>();
         }
-        public void agregar_cancion(Cancion song)
+        public void agregarCancion(Cancion song)
         {
             if (head == null)
             {
@@ -142,7 +142,7 @@ public class Informe_2
             System.out.println("La cancion " + nombre + " de " + artista + " no se encuentra en la lista de reproduccion");
         }
 
-        void reproducir()
+        public void reproducir()
         {
             if (head != null)
             {
@@ -156,7 +156,7 @@ public class Informe_2
             }
         }
 
-        void buscar_cancion(String nombre, String artista)
+        public void buscarCancion(String nombre, String artista)
         {
             Cancion current = head;
             while (current != null)
@@ -169,7 +169,7 @@ public class Informe_2
             }
         }
 
-        void mostrar_siguientes()
+        public void mostrarSiguientes()
         {
             System.out.println("Lista de reproduccion:");
             Cancion current = head;
@@ -182,7 +182,7 @@ public class Informe_2
             }
         }
 
-        void mostrar_historial()
+        public void mostrarHistorial()
         {
             System.out.println("Historial de reproduccion:");
             int counter = 0;

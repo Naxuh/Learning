@@ -12,6 +12,7 @@ public class Class_05_24_2024
     public static void main(String[] args)
     {
         BinarySearchTree bst = new BinarySearchTree();
+
         bst.insert(50);
         bst.insert(30);
         bst.insert(70);
@@ -19,12 +20,14 @@ public class Class_05_24_2024
         bst.insert(40);
         bst.insert(60);
         bst.insert(80);
-        System.out.println(bst.search(bst.root,60));
+
+        bst.preOrder(bst.root);
     }
 
     public static class BinarySearchTree
     {
-        static class Node {
+        static class Node
+        {
             int value;
             Node left;
             Node right;
@@ -102,36 +105,36 @@ public class Class_05_24_2024
             }
         }
 
-        public void pre_order(Node root) // O(n)
+        public void preOrder(Node root) // O(n)
         {
             if (root == null)
             {
                 return;
             }
             System.out.println(root.value);
-            pre_order(root.left);
-            pre_order(root.right);
+            preOrder(root.left);
+            preOrder(root.right);
         }
 
-        public void in_order(Node root) // O(n)
+        public void inOrder(Node root) // O(n)
         {
             if (root == null)
             {
                 return;
             }
-            in_order(root.left);
+            inOrder(root.left);
             System.out.println(root.value);
-            in_order(root.right);
+            inOrder(root.right);
         }
 
-        public void post_order(Node root) // O(n)
+        public void postOrder(Node root) // O(n)
         {
             if (root == null)
             {
                 return;
             }
-            post_order(root.left);
-            post_order(root.right);
+            postOrder(root.left);
+            postOrder(root.right);
             System.out.println(root.value);
         }
     }

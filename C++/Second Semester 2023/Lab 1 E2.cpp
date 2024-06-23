@@ -71,6 +71,7 @@ public:
     {
         int usados = 0;
         int nuevos = 0;
+
         for (int i = 0; i < 15; i++)
         {
             if (usado[i] != nullptr)
